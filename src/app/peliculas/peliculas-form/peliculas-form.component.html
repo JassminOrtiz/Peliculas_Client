@@ -1,0 +1,38 @@
+<form #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="iD_Pelicula" value="service.formData.iD_Pelicula">
+    <div class="mb-3">
+        <label>Titulo</label>
+        <input class="form-control form-control-lg" 
+                placeholder="Nombre de la pelicula"
+                #titulo="ngModel" name="titulo"
+                [(ngModel)] = "service.formData.titulo">
+
+    </div>
+    <div class="mb-3">
+        <label>Reparto</label>
+        <input class="form-control form-control-lg" 
+                placeholder="Actores"
+                #reparto="ngModel" name="reparto"
+                [(ngModel)] = "service.formData.reparto">
+
+    </div>
+    <div class="mb-3">
+        <label>Año</label>
+        <input class="form-control form-control-lg" 
+                placeholder="Año de la pelicula"
+                #anio="ngModel" name="anio"
+                [(ngModel)] = "service.formData.anio">
+
+    </div>
+    <div class="mb-3">
+        <label>Genero</label>
+        <select name="genero" [(ngModel)]="service.formData.iD_Genero">
+            <option *ngFor="let genero of service.listG" [value]="genero.iD_Genero">{{ genero.genero }}</option>
+          </select>
+    </div>
+    <div class="d-grid">
+        <button class="btn btn-lg btn-success" type="submit">
+            Agregar
+        </button>
+    </div>
+</form>
